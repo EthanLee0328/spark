@@ -16,7 +16,7 @@ object FileByteCounter {
   }
 
   def main(args: Array[String]): Unit = {
-    val filePath = "data/wc/wc01.txt"
+    val filePath = "/Users/dz0400148/Desktop/spark/basic/atguigu/article/SparkCore.pdf"
     val fileSize = getFileSize(filePath)
     fileSize match {
       case Some(size) => println(s"File $filePath size is $size")
