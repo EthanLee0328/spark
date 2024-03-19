@@ -7,9 +7,9 @@ import org.apache.spark.{SparkConf, SparkContext}
  * @author EthanLee
  * @Version 1.0
  */
-object Operator_Transformation_DoubleValue_PartitionBy_UserDefinePartitioner_BrowseDataProcessor {
+object Operator_Transformation_KeyValue_PartitionBy_UserDefinePartitioner_BrowseDataProcessor {
   def main(args: Array[String]): Unit = {
-    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator_Transformation_DoubleValue_PartitionBy_UserDefinePartitioner_BrowseDataProcessor")
+    val sparkConf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("Operator_Transformation_KeyValue_PartitionBy_UserDefinePartitioner_BrowseDataProcessor")
     val sparkContext = new SparkContext(sparkConf)
     // 模拟浏览数据
     val data = Seq(

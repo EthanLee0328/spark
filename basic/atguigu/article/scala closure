@@ -1,0 +1,44 @@
+scala closure
+In Scala, a closure is a function whose return value depends on the value of one or more variables declared outside this function. Essentially, closures "capture" variables from their surrounding context. This concept allows Scala programs to be concise and flexible.
+在Scala中，闭包是一个函数，其返回值依赖于一个或多个在这个函数外部声明的变量的值。本质上，闭包“捕获”了它们周围上下文中的变量。这个概念允许Scala程序更加简洁和灵活。
+
+Characteristics of Closures
+
+    Capture external variables: Closures can use variables that are not defined within the function.
+    Immutability: If a closure captures a variable from its enclosing scope, Scala effectively treats the variable as immutable, even if it's declared as mutable. This is crucial for avoiding side effects in concurrent programming.
+    Functional programming: Closures are a key feature of functional programming, enabling functions to be first-class citizens that can be passed around and manipulated like any other data.
+        捕获外部变量：闭包可以使用不在函数内部定义的变量。
+    不变性：如果闭包捕获了其封闭作用域中的变量，Scala实际上将该变量视为不可变的，即使它被声明为可变的。这对于在并发编程中避免副作用至关重要。
+    函数式编程：闭包是函数式编程的一个关键特性，使得函数可以像任何其他数据一样，成为第一类公民，可以被传递和操作。
+
+object ClosureDemo {
+  def main(args: Array[String]): Unit = {
+    /*
+      Please write a program with the following requirements:
+      1. Write a function makeSuffix(suffix: String) that accepts a file extension (e.g., ".jpg") and returns a closure.
+      2. When the closure is called with a filename, if the filename does not have the specified extension (e.g., ".jpg"), it returns the filename with the extension appended (e.g., "dog" becomes "dog.jpg"). If the filename already has the ".jpg" extension, it returns the original filename.
+         For example, if the filename is "dog" => returns "dog.jpg"
+         For example, if the filename is "cat.jpg" => returns "cat.jpg"
+      3. This should be accomplished using a closure.
+         Hint: String.endsWith(xx)
+    */
+    val f = makeSuffix(".jpg")
+    println(f("dog"))
+    println(f("cat.jpg"))
+
+
+  }
+
+  def makeSuffix(suffix: String) = {
+    (fileName: String) => {
+      if (fileName.endsWith(suffix)) {
+        fileName
+      } else {
+        fileName + suffix
+      }
+    }
+  }
+
+}
+
+
